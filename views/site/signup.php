@@ -13,6 +13,7 @@ $this->title = 'Signup';
         <?= $form->field($model, 'username')->textInput(['class' => '']) ?>
         <?= $form->field($model, 'email')->textInput(['class' => '']) ?>
         <?= $form->field($model, 'password_hash')->passwordInput(['class' => '']) ?>
+        <?= $form->field($model, 'info')->passwordInput(['class' => '']) ?>
         <div class="div_btn">
             <?= Html::submitButton('Зарегистрироваться', ['class' => 'start_btn', 'name' => 'signup-button']) ?>
         </div>

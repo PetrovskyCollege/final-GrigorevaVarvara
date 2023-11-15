@@ -91,14 +91,18 @@ class UsersController extends Controller
      */
     public function actionUpdate($id)
     {
-        $model = $this->findModel($id);
+        $user = $this->findModel($id);
 
-        if ($this->request->isPost && $model->load($this->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+        if ($this->request->isPost && $model->load($this->request->post()) && $user->save()) {
+            return $this->redirect(['view', 'id' => $user->id]);
         }
 
         return $this->render('update', [
-            'model' => $model,
+            $user->username = $this->username;
+            $user->email = $this->email;
+            $user->info = $this->info;
+            $user->setPassword($this->password_hash);
+            $user->generateAuthKey();
         ]);
     }
 

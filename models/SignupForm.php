@@ -14,12 +14,14 @@ class SignupForm extends Model
     public $username;
     public $email;
     public $password_hash;
+    public $info;
 
     public function attributeLabels()
     {
         return [
             'username' => 'Имя пользователя',
             'password_hash' => 'Пароль',
+            'info' => 'Расскажите о себе',
 
         ];
     }
@@ -39,6 +41,8 @@ class SignupForm extends Model
             ['email', 'email'],
             ['email', 'string', 'max' => 255],
             ['email', 'unique', 'targetClass' => '\app\models\User', 'message' => 'This email address has already been taken.'],
+            ['info', 'trim'],
+            ['info', 'string'],
             ['password_hash', 'required'],
             ['password_hash', 'string', 'min' => 6],
         ];
@@ -59,6 +63,7 @@ class SignupForm extends Model
         $user = new User();
         $user->username = $this->username;
         $user->email = $this->email;
+        $user->info = $this->info;
         $user->setPassword($this->password_hash);
         $user->generateAuthKey();
         return $user->save() ? $user : null;

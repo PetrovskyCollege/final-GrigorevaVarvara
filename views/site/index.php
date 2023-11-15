@@ -11,7 +11,7 @@ use yii\helpers\Url;
             <div  class="container">
                 <h1 class="pink">Превращай рутину в игру</h1>
                 <p class="text_firstscreen">Выполняй повседневые дела в игровом формате с Hero quest!</p>
-                <a  class="start_btn" href="<?= Url::to(['login'])  ?>">начать</a>
+                <a  class="start_btn" href="<?= Url::to(['/site/signup'])  ?>">начать</a>
             </div>
         </div>
         <div class="container">

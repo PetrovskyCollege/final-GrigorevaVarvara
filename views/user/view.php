@@ -3,6 +3,7 @@
 use yii\helpers\Html;
 use yii\helpers\VarDumper;
 use yii\widgets\DetailView;
+use yii\helpers\Url;
 
 /** @var yii\web\View $this */
 /** @var app\models\User $model */
@@ -31,24 +32,30 @@ $this->title = $model->id;
                     </div>
             </div>
             <div>
-                <p class="pink">уровень</p>
-                <? 
-                    echo("<h3>".$model->points."</h3>");
-                ?>      
+                <p class="blue">уровень</p>
+                <h3 class="blue" ><? echo($model->points);?>  </h3>    
             </div>
         </div>
         
     </div>
+    <?= Html::a('редактировать', ['/user/update', 'id' => $model->id], ['class' => 'start_btn']) ?>
+    <?= Html::a('удалить профиль', ['delete', 'id' => $model->id], [
+            'class' => 'start_btn btn-danger',
+            'data' => [
+                'confirm' => 'Вы уверены что хотите удалить свой профиль?',
+                'method' => 'post',
+            ],
+        ]) ?>
     <div class="profile_block">
         <h3 class="pink">Статистика</h3>
-        <div class="flexrow">
-            <div class="statistic">
+        <div class="flexrowcenter">
+            <div class="statistic blue">
                 <p>битв выиграно</p>
                 <? 
                     echo("<h3>".$model->points."</h3>");
                 ?>  
             </div>
-            <div class="profile_field">
+            <div class="statistic blue">
                 <p>дел выполнено</p>
                 <? 
                     echo("<h3>".$model->task_count."</h3>");

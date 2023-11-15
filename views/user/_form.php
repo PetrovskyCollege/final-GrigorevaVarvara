@@ -8,9 +8,22 @@ use yii\widgets\ActiveForm;
 /** @var yii\widgets\ActiveForm $form */
 ?>
 
-<div class="user-form">
-
+<div class="user-form entrance">
     <?php $form = ActiveForm::begin(); ?>
+    <div class="div_input">
+        <?= $form->field($model, 'username')->textInput(['class' => '']) ?>
+        <?= $form->field($model, 'email')->textInput(['class' => '']) ?>
+        <?= $form->field($model, 'password_hash')->passwordInput(['class' => '']) ?>
+        <?= $form->field($model, 'info')->textInput(['class' => '']) ?>
+        <div class="div_btn">
+            <?= Html::submitButton('Сохранить', ['class' => 'start_btn', 'name' => 'signup-button']) ?>
+        </div>
+    </div>
+    <?php ActiveForm::end(); ?>
+
+
+
+    <!-- <?php $form = ActiveForm::begin(); ?>
 
     <?= $form->field($model, 'username')->textInput(['maxlength' => true]) ?>
 
@@ -28,6 +41,6 @@ use yii\widgets\ActiveForm;
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
     </div>
 
-    <?php ActiveForm::end(); ?>
+    <?php ActiveForm::end(); ?> -->
 
 </div>
